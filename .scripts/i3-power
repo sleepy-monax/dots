@@ -1,0 +1,8 @@
+#!/bin/sh
+
+case "$(echo -e "Shutdown\nRestart\nExit\nLock" | dmenu -i -l 8 -p "Power:" -sb "#E6B450" -nb "#0A0E14")" in
+        Shutdown) exec systemctl poweroff;;
+        Restart) exec systemctl reboot;;
+        Exit) exec i3-msg exit;;
+        Lock) exec i3-lock;
+esac

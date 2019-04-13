@@ -1,0 +1,7 @@
+#!/bin/sh
+
+scrot -q 50 .config/screen.png
+dunstify -r 1 "🔐 ImageMagick" "Bluring the screen..."
+convert .config/screen.png -blur 0x4 .config/lock.png
+dunstify -r 1 "🔐 i3lock" "Locking..."
+i3lock -i .config/lock.png

@@ -1,0 +1,184 @@
+# Nicolas's I3-gaps configs
+
+set $mod mod4
+
+exec --no-startup-id unclutter --timeout 3
+exec --no-startup-id dunst
+exec --no-startup-id nm-applet
+exec --no-startup-id compton --config ~/.config/compton.conf
+exec --no-startup-id wall-update
+
+for_window [class="^.*"] border pixel 1
+for_window [title="QEMU"] floating enable
+for_window [title="Minecraft Launcher"] floating enable
+
+gaps inner 24
+gaps outer 0
+# smart_gaps on
+
+font pango:monospace 8
+floating_modifier $mod
+
+bindsym $mod+space exec terminal
+
+bindsym $mod+a kill
+
+bindsym $mod+d exec i3-dmenu-desktop --dmenu='dmenu -i -l 8 -p "Applications" -sb "#E6B450" -nb "#0A0E14"'
+bindsym $mod+Shift+d exec dmenu_run -i -l 8 -p "Applications" -sb "#E6B450" -nb "#0A0E14"
+
+# Wallpaper
+bindsym $mod+w exec wall-random
+bindsym $mod+u exec wall-unsplash
+
+# Pulse Audio controls
+#increase sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id i3-volume-up
+#decrease sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id i3-volume-down
+# mute sound
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && notify-send -t 250 "Volume 🔇"
+
+# increase screen brightness
+bindsym XF86MonBrightnessUp exec i3-brightness-up
+# decrease screen brightness
+bindsym XF86MonBrightnessDown exec i3-brightness-down
+
+bindsym $mod+e exec i3-power
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Shift+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+# bindsym $mod+space focus mode_toggle
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+client.focused #E6B450 #FFB454 #FFFFFF #E6B450 #FFB454
+client.focused_inactive #B3B1AD #B3B1AD #FFFFFF #B3B1AD #B3B1AD
+client.unfocused #B3B1AD #B3B1AD #FFFFFF #B3B1AD #B3B1AD
+
+bar {
+	mode dock
+	status_command i3blocks
+	position top
+	i3bar_command i3bar -t
+        font pango:Fira code 10
+        #height 20
+
+	colors {
+		statusline #B3B1AD
+                separator #3D424D
+
+		background #0A0E14EE
+                #background #0A0E1400
+
+		#focused_workspace #E6B450 #0A0E14 #E6B450
+                #inactive_workspace #0A0E14 #0A0E14 #B3B1AD
+
+                focused_workspace #E6B450 #0A0E14EE #E6B450
+                inactive_workspace #0A0E14EE #0A0E14EE #B3B1AD
+        }
+
+}

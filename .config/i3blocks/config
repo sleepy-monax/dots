@@ -1,0 +1,22 @@
+separator_block_width=15
+markup=pango
+
+[power]
+command=i3blocks-power BAT0
+interval=10
+
+[brightness]
+command=i3blocks-brightness
+interval=10
+
+[volume]
+command=i3blocks-volume
+interval=10
+
+[network]
+command=i3blocks-network
+interval=30
+
+[clock]
+command=i3blocks-clock
+interval=30
