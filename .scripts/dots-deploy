@@ -1,0 +1,5 @@
+#!/bin/bash
+git clone --recursive --separate-git-dir=$HOME/.dots.git https://github.com/NicolasVanBossuyt/dots /tmp/dots
+rsync -rvl --exclude ".git" /tmp/dots/ $HOME/
+rm -r /tmp/dots
+dots submodule update --init --recursive $HOME/
