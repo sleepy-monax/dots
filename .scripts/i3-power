@@ -1,6 +1,6 @@
 #!/bin/sh
 
-case "$(echo -e "Shutdown\nRestart\nExit\nLock" | dmenu -i -l 8 -p "Power:" -sb "#E6B450" -nb "#0A0E14")" in
+case "$(echo -e "Shutdown\nRestart\nExit\nLock" | dmenu -q -dim 0.5 -fn "Fira code:pixelsize=17" -p "Power " -i -nb "#0A0E14" -nf "#B3B1AD" -sb "#E6B450" -sf "#0A0E14")" in
         Shutdown) exec systemctl poweroff;;
         Restart) exec systemctl reboot;;
         Exit) exec i3-msg exit;;

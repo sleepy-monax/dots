@@ -23,8 +23,8 @@ bindsym $mod+space exec terminal
 
 bindsym $mod+a kill
 
-bindsym $mod+d exec i3-dmenu-desktop --dmenu='dmenu -i -l 8 -p "Applications" -sb "#E6B450" -nb "#0A0E14"'
-bindsym $mod+Shift+d exec dmenu_run -i -l 8 -p "Applications" -sb "#E6B450" -nb "#0A0E14"
+bindsym $mod+d exec i3-dmenu-desktop --dmenu='dmenu -dim 0.5 -fn "Fira code:pixelsize=17" -p "Applications" -i -nb "#0A0E14" -nf "#B3B1AD" -sb "#E6B450" -sf "#0A0E14"'
+bindsym $mod+Shift+d exec dmenu_run -dim 0.5 -fn "Fira code:pixelsize=17" -p "Applications" -i -nb "#0A0E14" -nf "#B3B1AD" -sb "#E6B450" -sf "#0A0E14"
 
 # Wallpaper
 bindsym $mod+w exec wall-random
@@ -44,6 +44,7 @@ bindsym XF86MonBrightnessUp exec i3-brightness-up
 bindsym XF86MonBrightnessDown exec i3-brightness-down
 
 bindsym $mod+e exec i3-power
+bindsym $mod+s exec i3-switcher
 
 # change focus
 bindsym $mod+h focus left
