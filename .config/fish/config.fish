@@ -1,7 +1,7 @@
 set -U fish_greeting
 
 set -x PATH $PATH ~/.scripts
-
+set -x EDITOR nvim
 # Start X at login
 if status --is-login
 	if test -z "$DISPLAY" -a $XDG_VTNR = 1

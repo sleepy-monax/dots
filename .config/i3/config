@@ -8,7 +8,7 @@ exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id compton --config ~/.config/compton.conf
 exec --no-startup-id wall-update
-
+exec --no-startup-id solaar
 for_window [class="^.*"] border pixel 1
 for_window [title="QEMU"] floating enable
 for_window [title="Minecraft Launcher"] floating enable
