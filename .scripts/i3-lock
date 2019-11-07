@@ -1,7 +1,14 @@
 #!/bin/sh
-
+rm .config/screen.png
 scrot -q 50 .config/screen.png
 dunstify -r 1 "🔐 ImageMagick" "Bluring the screen..."
-convert .config/screen.png -blur 0x4 .config/lock.png
+convert .config/screen.png -blur 0x8 -fill black -colorize 25% .config/lock.png
 dunstify -r 1 "🔐 i3lock" "Locking..."
-i3lock -i .config/lock.png
+
+i3lock --indpos='x+667:h-96' --radius=32 --ring-width=4 --line-uses-inside \
+       --separatorcolor=00000000 --keyhlcolor=39BAE6ff \
+       --ringcolor=ffffff55 --insidecolor=00000000 \
+       --ringvercolor=39BAE6ff --insidevercolor=00000000 \
+       --ringwrongcolor=00000000 --insidewrongcolor=FF3333FF \
+       --verifcolor=ffffffff --veriftext='' --wrongtext='' --timepos='ix:iy-300' \
+       --timecolor=39BAE6ff --datecolor=ffffff99 --clock -i .config/lock.png

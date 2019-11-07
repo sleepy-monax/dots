@@ -1,8 +1,12 @@
 separator_block_width=15
 markup=pango
 
-[power]
+[battery0]
 command=i3blocks-power BAT0
+interval=10
+
+[battery1]
+command=i3blocks-power BAT1
 interval=10
 
 [brightness]

@@ -2,36 +2,56 @@
 
 set $mod mod4
 
+for_window [class="^.*"] border pixel 0
+for_window [title="QEMU"] floating enable
+for_window [title="Minecraft Launcher"] floating enable
+
 exec --no-startup-id key-remap
 exec --no-startup-id unclutter --timeout 3
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 exec --no-startup-id compton --config ~/.config/compton.conf
 exec --no-startup-id wall-update
 exec --no-startup-id solaar
-for_window [class="^.*"] border pixel 1
-for_window [title="QEMU"] floating enable
-for_window [title="Minecraft Launcher"] floating enable
 
-gaps inner 24
+gaps inner 8
 gaps outer 0
-# smart_gaps on
+smart_gaps on
 
 font pango:monospace 8
 floating_modifier $mod
 
 bindsym $mod+space exec terminal
 
-bindsym $mod+a kill
+bindsym $mod+Shift+a kill
 
-bindsym $mod+d exec i3-dmenu-desktop --dmenu='dmenu -dim 0.5 -fn "Fira code:pixelsize=17" -p "Applications" -i -nb "#0A0E14" -nf "#B3B1AD" -sb "#E6B450" -sf "#0A0E14"'
-bindsym $mod+Shift+d exec dmenu_run -dim 0.5 -fn "Fira code:pixelsize=17" -p "Applications" -i -nb "#0A0E14" -nf "#B3B1AD" -sb "#E6B450" -sf "#0A0E14"
+bindsym $mod+d exec i3-dmenu-desktop --dmenu='i3-menu -p "Applications: "'
+bindsym $mod+Shift+d exec dmenu_run -dim 0.5 -fn "Fira code:pixelsize=17" -p "Applications: " -i -nb "#0A0E14" -nf "#B3B1AD" -sb "#56C2FF" -sf "#0A0E14"
+
+# Quake Terminal
+
+exec --no-startup-id kitty --config ~/.config/kitty/kitty_quake.conf --name dropdown &
+
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] move position 0px 192px
+for_window [instance="dropdown"] resize set 1366 576
+for_window [instance="dropdown"] move scratchpad
+
+mode "Quake Terminal" {
+        bindsym $mod+Shift+a [instance="dropdown"] scratchpad show, mode "default"
+	 
+	# Broke vim :/
+	bindsym $mod+Escape [instance="dropdown"] scratchpad show, mode "default"
+}
+
+bindsym $mod+Escape [instance="dropdown"] scratchpad show, mode "Quake Terminal"
 
 # Pulse Audio controls
 #increase sound volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id i3-volume-up
+bindsym XF86AudioRaiseVolume exec i3-volume-up
 #decrease sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id i3-volume-down
+bindsym XF86AudioLowerVolume exec i3-volume-down
 # mute sound
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && notify-send -t 250 "Volume 🔇"
 
@@ -42,6 +62,8 @@ bindsym XF86MonBrightnessDown exec i3-brightness-down
 
 bindsym $mod+e exec i3-power
 bindsym $mod+s exec i3-switcher
+bindsym $mod+p exec i3-display
+bindsym $mod+w exec wall-random
 
 # change focus
 bindsym $mod+h focus left
@@ -121,49 +143,50 @@ bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+mode "move" {
+        bindsym $mod+Shift+h move left
+        bindsym $mod+Shift+j move down
+        bindsym $mod+Shift+k move up
+        bindsym $mod+Shift+l move right
+
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
+bindsym $mod+m mode "move"
 
-client.focused #E6B450 #FFB454 #FFFFFF #E6B450 #FFB454
-client.focused_inactive #B3B1AD #B3B1AD #FFFFFF #B3B1AD #B3B1AD
-client.unfocused #B3B1AD #B3B1AD #FFFFFF #B3B1AD #B3B1AD
+client.focused #0A0E14 #0A0E14 #0A0E14 #0A0E14 #0A0E14
+client.focused_inactive #0A0E14 #0A0E14 #0A0E14 #0A0E14 #0A0E14
+client.unfocused #0A0E14 #0A0E14 #0A0E14 #0A0E14 #0A0E14
 
 bar {
-	mode dock
-	status_command i3blocks
-	position top
-	i3bar_command i3bar -t
+        status_command i3blocks
+        mode dock
+        position top
+        i3bar_command i3bar
         font pango:Fira code 10
-        #height 20
 
-	colors {
-		statusline #B3B1AD
-                separator #3D424D
+        colors {
+                statusline #B3B1AD
+                separator  #3D424D
 
-		background #0A0E14EE
-                #background #0A0E1400
+                background #0A0E14
 
-		#focused_workspace #E6B450 #0A0E14 #E6B450
-                #inactive_workspace #0A0E14 #0A0E14 #B3B1AD
-
-                focused_workspace #E6B450 #0A0E14EE #E6B450
-                inactive_workspace #0A0E14EE #0A0E14EE #B3B1AD
+                focused_workspace  #56C2FF #56C2FF #0A0E14
+                inactive_workspace #0A0E14 #0A0E14 #B3B1AD
         }
-
 }
+
+
