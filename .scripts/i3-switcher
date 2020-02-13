@@ -10,6 +10,6 @@ if [[ $height -gt 30 ]]
 	else heightfit=$height
 fi
 
-num=$(wmctrl -l | sed 's/  / /' | cut -d " " -f 4- | nl -w 3 -n rn | sed -r 's/^([ 0-9]+)[ \t]*(.*)$/\1 - \2/' | dmenu -l $heightfit -dim 0.5 -fn "Fira code:pixelsize=17" -p "Switch to " -i -nb "#0A0E14" -nf "#B3B1AD" -sb "#E6B450" -sf "#0A0E14" | cut -d '-' -f -1)
+num=$(wmctrl -l | sed 's/  / /' | cut -d " " -f 4- | nl -w 3 -n rn | sed -r 's/^([ 0-9]+)[ \t]*(.*)$/\1 - \2/' | i3-menu -l $heightfit -p "Switch to " | cut -d '-' -f -1)
 [[ -z "$num" ]] && exit
 wmctrl -l | sed -n "$num p" | cut -c -10 | xargs wmctrl -i -a

@@ -1,3 +1,6 @@
+*.foreground : #ffffff
+*.background : #0A0E10
+
 st.alpha: 238
 
 *.color0 : #0A0E10

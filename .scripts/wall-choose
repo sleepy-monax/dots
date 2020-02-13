@@ -1,0 +1,9 @@
+#!/bin/bash
+
+WALLPAPER=$(sxiv -boft ~/Wallpapers)
+
+if [ -f "$WALLPAPER" ]; then
+    dunstify -r 1 --icon="$WALLPAPER" "🖼 Wallpaper updated!" " Setting wallpaper to $WALLPAPER"
+    cp "$WALLPAPER" ~/.config/wall.png
+    wall-update
+fi

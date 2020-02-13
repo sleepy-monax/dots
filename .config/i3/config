@@ -2,22 +2,23 @@
 
 set $mod mod4
 
-for_window [class="^.*"] border pixel 0
+#for_window [class="^.*"] border pixel 1
 for_window [title="QEMU"] floating enable
 for_window [title="Minecraft Launcher"] floating enable
+for_window [title="win0"] floating enable # IDEA splash screen
 
 exec --no-startup-id key-remap
-exec --no-startup-id unclutter --timeout 3
+exec --no-startup-id unclutter --timeout 1 --jitter 16 --ignore-scrolling 
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id compton --config ~/.config/compton.conf
+exec --no-startup-id picom --config ~/.config/compton.conf
 exec --no-startup-id wall-update
 exec --no-startup-id solaar
 
-gaps inner 8
-gaps outer 0
-smart_gaps on
+#gaps inner 16
+#gaps outer 0
+#smart_gaps on
 
 font pango:monospace 8
 floating_modifier $mod
@@ -34,8 +35,8 @@ bindsym $mod+Shift+d exec dmenu_run -dim 0.5 -fn "Fira code:pixelsize=17" -p "Ap
 exec --no-startup-id kitty --config ~/.config/kitty/kitty_quake.conf --name dropdown &
 
 for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] move position 0px 192px
-for_window [instance="dropdown"] resize set 1366 576
+for_window [instance="dropdown"] move position 0px 314px
+for_window [instance="dropdown"] resize set 1920 768
 for_window [instance="dropdown"] move scratchpad
 
 mode "Quake Terminal" {
@@ -63,7 +64,8 @@ bindsym XF86MonBrightnessDown exec i3-brightness-down
 bindsym $mod+e exec i3-power
 bindsym $mod+s exec i3-switcher
 bindsym $mod+p exec i3-display
-bindsym $mod+w exec wall-random
+bindsym $mod+w exec wall-choose
+bindsym $mod+Shift+w exec wall-random
 
 # change focus
 bindsym $mod+h focus left
@@ -88,7 +90,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+Shift+s layout stacking
-bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Shift+t layout tabbed
 bindsym $mod+Shift+e layout toggle split
 
 # toggle tiling / floating
@@ -167,9 +169,10 @@ mode "move" {
 bindsym $mod+r mode "resize"
 bindsym $mod+m mode "move"
 
-client.focused #0A0E14 #0A0E14 #0A0E14 #0A0E14 #0A0E14
-client.focused_inactive #0A0E14 #0A0E14 #0A0E14 #0A0E14 #0A0E14
-client.unfocused #0A0E14 #0A0E14 #0A0E14 #0A0E14 #0A0E14
+client.focused #0A0E14 #0A0E14 #59C2FF #0A0E14 #0A0E14
+client.focused_inactive #0A0E14 #0A0E14 #3D424D #0A0E14 #0A0E14
+client.unfocused #0A0E14 #0A0E14 #3D424D #0A0E14 #0A0E14
+client.urgent #0A0E14 #0A0E14  #ff3333 #0A0E14
 
 bar {
         status_command i3blocks
@@ -186,6 +189,7 @@ bar {
 
                 focused_workspace  #56C2FF #56C2FF #0A0E14
                 inactive_workspace #0A0E14 #0A0E14 #B3B1AD
+                urgent_workspace #ff3333 #ff3333 #0A0E14 
         }
 }
 

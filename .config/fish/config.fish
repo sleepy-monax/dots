@@ -1,6 +1,7 @@
 set -U fish_greeting
 
 set -x PATH $PATH ~/.scripts
+set -x PATH $PATH ~/.local/bin
 set -x EDITOR nvim
 # Start X at login
 if status --is-login
@@ -32,3 +33,5 @@ abbr l 'ls'
 abbr ll 'ls -l'
 abbr la 'ls -a'
 abbr lla 'ls -la'
+
+thefuck --alias | source

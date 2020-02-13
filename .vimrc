@@ -10,6 +10,7 @@ set showcmd
 set colorcolumn=80
 set termguicolors
 
+set updatetime=500
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -59,6 +60,7 @@ let g:indentLine_first_char = '|'
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 
+autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap E :CocCommand explorer<CR>
 nnoremap <Leader>f :set nomore<Bar>:ls<Bar>:set more<CR>:b<Space>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
