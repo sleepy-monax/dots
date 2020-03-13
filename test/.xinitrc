@@ -1,0 +1,1 @@
+../packages/X/.xinitrc

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+WALLPAPER="$(ls ~/.wallpapers/* | sort -R | tail -1)"
+cp $WALLPAPER ~/.config/wall.png
+wall-update
+dunstify -r 1 "🖼 Wallpaper updated!" $WALLPAPER

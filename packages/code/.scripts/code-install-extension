@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+cat ~/.config/VSCodium/extensions.txt | xargs -n 1 code --install-extension

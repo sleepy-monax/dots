@@ -1,0 +1,2 @@
+#!/bin/sh
+brightnessctl i -m | awk '{split($0,a,","); print a[4]}'

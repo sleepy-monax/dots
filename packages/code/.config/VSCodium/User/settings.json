@@ -1,0 +1,55 @@
+{
+    "bracket-pair-colorizer-2.forceUniqueOpeningColor": true,
+    "C_Cpp.clang_format_sortIncludes": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.fontFamily": "'Fira Code','iosevka',  'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
+    "editor.fontLigatures": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.minimap.enabled": true,
+    "editor.rulers": [
+        80
+    ],
+    "editor.smoothScrolling": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.incrementalNaming": "smart",
+    "files.autoSave": "afterDelay",
+    "files.simpleDialog.enable": true,
+    "git.autofetch": true,
+    "java.codeGeneration.hashCodeEquals.useInstanceof": true,
+    "java.codeGeneration.hashCodeEquals.useJava7Objects": true,
+    "java.codeGeneration.useBlocks": true,
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif, 'Noto Color Emoji'",
+    "window.menuBarVisibility": "toggle",
+    "window.openWithoutArgumentsInNewWindow": "off",
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": true,
+    "workbench.iconTheme": "vscode-icon-theme",
+    "workbench.statusBar.visible": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
+    "synthwave84.brightness": 1,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "workbench.colorTheme": "Ayu Dark",
+}

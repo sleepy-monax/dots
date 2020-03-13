@@ -1,4 +1,0 @@
-#!/bin/bash
-FILENAME=$RANDOM$RANDOM$RANDOM.png
-cp ~/.config/wall.png ~/Wallpapers/$FILENAME
-dunstify -r 1 "🖼 Wallpaper saved!" $FILENAME 

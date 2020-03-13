@@ -1,0 +1,1 @@
+../packages/bash/.bashrc

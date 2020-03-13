@@ -1,3 +1,0 @@
-#!/bin/bash
-pactl set-sink-volume 0 +5% 
-dunstify -r 1 "Volume 🔊 $(get-volume)"

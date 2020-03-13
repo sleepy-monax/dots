@@ -1,8 +1,0 @@
-#!/bin/bash
-dunstify -r 1 "🖼 Unsplash" "Downloading wallpaper..." &&\
-wget https://source.unsplash.com/collection/wallpapers/1920x1080 -O ~/.config/tmp.jpg &&\
-dunstify -r 1 "🖼 ImageMagick" "Converting..." &&\
-convert ~/.config/tmp.jpg ~/.config/wall.png &&\
-rm ~/.config/tmp.jpg &&\
-wall-update &&\
-dunstify -r 1 "🖼 Unsplash" "Wallpaper updated!" || dunstify -r 1 "🖼 Unsplash" "Wallpaper change failled!"

@@ -1,2 +1,0 @@
-#!/bin/bash
-dmenu -nb "#0A0E14" -nf "#B3B1AD" -sb "#56C2FF" -sf "#0A0E14" -dim 0.5 -fn  "Fira code:pixelsize=17" -i "$@"

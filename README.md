@@ -1,2 +1,2 @@
 # My dots files
-![meme](.config/meme.jpg)
+![meme](meme.jpg)

@@ -1,0 +1,15 @@
+#!/bin/sh
+brightnessctl set +1%
+sleep 0.01
+brightnessctl set +1%
+sleep 0.01
+brightnessctl set +1%
+sleep 0.01
+brightnessctl set +1%
+sleep 0.01
+brightnessctl set +1%
+sleep 0.01
+
+pkill -RTMIN+2 i3blocks
+
+dunstify -r 1 "💡 Brightness $(get-brightness)"

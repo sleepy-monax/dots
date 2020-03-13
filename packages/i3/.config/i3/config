@@ -1,0 +1,198 @@
+# Nicolas's I3-gaps configs
+
+set $mod mod4
+
+for_window [class="^.*"] border pixel 1
+for_window [title="QEMU"] floating enable
+for_window [title="Minecraft Launcher"] floating enable
+for_window [title="win0"] floating enable # IDEA splash screen
+for_window [title="Four in a Row"] floating enable
+
+exec --no-startup-id x-remap
+exec --no-startup-id unclutter --timeout 1 --jitter 16 --ignore-scrolling 
+exec --no-startup-id dunst
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id picom --config ~/.config/compton.conf
+exec --no-startup-id wall-update
+exec --no-startup-id solaar
+#exec_always --no-startup-id $HOME/.scripts/i3-polybar
+
+#gaps inner 16
+#gaps outer 0
+#smart_gaps on
+
+font pango:monospace 8
+floating_modifier $mod
+
+bindsym $mod+space exec terminal
+
+bindsym $mod+Shift+a kill
+
+bindsym $mod+d exec i3-dmenu-desktop --dmenu='i3-menu -p "Applications: "'
+bindsym $mod+Shift+d exec dmenu_run -dim 0.5 -fn "Fira code:pixelsize=17" -p "Applications: " -i -nb "#0A0E14" -nf "#B3B1AD" -sb "#56C2FF" -sf "#0A0E14"
+
+# Quake Terminal
+
+exec --no-startup-id kitty --config ~/.config/kitty/kitty_quake.conf --name dropdown &
+
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] move position 0px 314px
+for_window [instance="dropdown"] resize set 1920 768
+for_window [instance="dropdown"] move scratchpad
+
+mode "Quake Terminal" {
+        bindsym $mod+Shift+a [instance="dropdown"] scratchpad show, mode "default"
+	 
+	# Broke vim :/
+	bindsym $mod+Escape [instance="dropdown"] scratchpad show, mode "default"
+}
+
+bindsym $mod+Escape [instance="dropdown"] scratchpad show, mode "Quake Terminal"
+
+# Pulse Audio controls
+#increase sound volume
+bindsym XF86AudioRaiseVolume exec i3-volume-up
+#decrease sound volume
+bindsym XF86AudioLowerVolume exec i3-volume-down
+# mute sound
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && notify-send -t 250 "Volume 🔇"
+
+# increase screen brightness
+bindsym XF86MonBrightnessUp exec i3-brightness-up
+# decrease screen brightness
+bindsym XF86MonBrightnessDown exec i3-brightness-down
+
+bindsym $mod+e exec i3-power
+bindsym $mod+s exec i3-switcher
+bindsym $mod+p exec i3-display
+bindsym $mod+w exec wall-choose
+bindsym $mod+Shift+w exec wall-random
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+t layout tabbed
+bindsym $mod+Shift+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+# bindsym $mod+space focus mode_toggle
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+bindsym $mod+u workspace prev
+bindsym $mod+i workspace next
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+mode "move" {
+        bindsym $mod+Shift+h move left
+        bindsym $mod+Shift+j move down
+        bindsym $mod+Shift+k move up
+        bindsym $mod+Shift+l move right
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+bindsym $mod+m mode "move"
+
+client.focused #0A0E14 #0A0E14 #59C2FF #0A0E14 #0A0E14
+client.focused_inactive #0A0E14 #0A0E14 #3D424D #0A0E14 #0A0E14
+client.unfocused #0A0E14 #0A0E14 #3D424D #0A0E14 #0A0E14
+client.urgent #0A0E14 #0A0E14  #ff3333 #0A0E14
+
+bar {
+        status_command i3blocks
+        mode dock
+        position top
+        i3bar_command i3bar
+        font pango:Fira code 10
+
+        colors {
+                statusline #B3B1AD
+                separator  #3D424D
+
+                background #0A0E14
+
+                focused_workspace  #56C2FF #56C2FF #0A0E14
+                inactive_workspace #0A0E14 #0A0E14 #B3B1AD
+                urgent_workspace #ff3333 #ff3333 #0A0E14 
+        }
+}
+
+

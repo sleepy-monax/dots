@@ -1,0 +1,33 @@
+
+[global]
+    monitor = 0
+    font = Noto sans 10
+    follow = keyboard
+    geometry = "x5+0-0"
+    indicate_hidden = yes
+    shrink = yes
+    notification_height = 0
+    separator_height = 1
+    padding = 16
+    horizontal_padding = 16
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    show_age_threshold = 60
+    word_wrap = yes
+    ellipsize = middle
+    frame_width = 1
+    transparency = 25
+    icon_position = left
+    max_icon_size = 40
+
+[urgency_low]
+    frame_color = "#0A0E14"
+    background = "#000000"
+    foreground = "#56C2FF"
+    timeout = 2
+
+[urgency_normal]
+    frame_color = "#0A0E14"
+    background = "#000000"
+    foreground = "#56C2FF"
+    timeout = 2
