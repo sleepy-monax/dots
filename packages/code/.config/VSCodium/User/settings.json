@@ -1,6 +1,9 @@
 {
     "bracket-pair-colorizer-2.forceUniqueOpeningColor": true,
     "C_Cpp.clang_format_sortIncludes": true,
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+    "C_Cpp.default.cppStandard": "c++20",
+    "C_Cpp.default.cStandard": "c17",
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.cursorSmoothCaretAnimation": true,
     "editor.fontFamily": "'Fira Code','iosevka',  'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
@@ -51,5 +54,14 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "workbench.colorTheme": "Ayu Dark",
+    "workbench.colorTheme": "Ayu Dark Bordered",
+    "tailwindCSS.emmetCompletions": true,
+    "powermode.enabled": true,
+    "powermode.backgroundMode": "image",
+    "powermode.enableShake": false,
+    "powermode.maxExplosions": 1,
+    "powermode.explosionFrequency": 4,
+    "powermode.customExplosions": [
+        "/home/nicolas/.config/VSCodium/User/sparkles.gif"
+    ],
 }

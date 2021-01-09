@@ -63,6 +63,7 @@ bindsym XF86MonBrightnessUp exec i3-brightness-up
 # decrease screen brightness
 bindsym XF86MonBrightnessDown exec i3-brightness-down
 
+bindsym --release Print exec scrot -f -s -e 'mv $f ~/Screenshots/'
 bindsym $mod+e exec i3-power
 bindsym $mod+s exec i3-switcher
 bindsym $mod+p exec i3-display
