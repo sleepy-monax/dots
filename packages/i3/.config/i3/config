@@ -38,7 +38,6 @@ for_window [instance="dropdown"] move scratchpad
 
 mode "Quake Terminal" {
         bindsym $mod+Shift+a [instance="dropdown"] scratchpad show, mode "default"
-	 
 	# Broke vim :/
 	bindsym $mod+Escape [instance="dropdown"] scratchpad show, mode "default"
 }
@@ -187,7 +186,7 @@ bar {
 
                 focused_workspace  #56C2FF #56C2FF #0A0E14
                 inactive_workspace #0A0E14 #0A0E14 #B3B1AD
-                urgent_workspace #ff3333 #ff3333 #0A0E14 
+                urgent_workspace #ff3333 #ff3333 #0A0E14
         }
 }
 
