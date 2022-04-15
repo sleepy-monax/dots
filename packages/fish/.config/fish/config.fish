@@ -3,17 +3,12 @@ set -U fish_greeting
 set -x PATH $PATH ~/.scripts
 set -x PATH $PATH ~/.local/bin
 set -x EDITOR nvim
+
 # Start X at login
 if status --is-login
-	if test -z "$DISPLAY" -a $XDG_VTNR = 1
-		exec startx -- -keeptty
-	end
-end
-
-if status --is-login
-	if test -z "$DISPLAY" -a $XDG_VTNR = 2
-		exec sway
-	end
+	if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+	    exec startx -- -keeptty
+    end
 end
 
 

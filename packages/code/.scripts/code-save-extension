@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-code --list-extensions > ~/.config/VSCodium/extensions.txt
+codium --list-extensions > ~/.config/VSCodium/extensions.txt
