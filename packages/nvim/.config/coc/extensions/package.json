@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "coc-explorer": ">=0.3.5",
-    "coc-highlight": ">=1.2.5"
-  }
-}
