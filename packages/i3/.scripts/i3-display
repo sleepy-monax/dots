@@ -69,4 +69,3 @@ case "$chosen" in
 esac
 
 pgrep -x dunst >/dev/null && killall dunst && setsid dunst & # Restart dunst to ensure proper location on screen
-wall_update

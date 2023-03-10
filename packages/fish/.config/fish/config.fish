@@ -37,3 +37,5 @@ abbr la 'ls -a'
 abbr lla 'ls -la'
 
 thefuck --alias | source
+pyenv init - | source
+

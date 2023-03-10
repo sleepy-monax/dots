@@ -1,22 +1,22 @@
 #!/bin/sh
+set -e
 sleep 1
 
-rm .config/lock.png
-rm .config/screen.png
+SCREEN=~/.config/screen.png
+BLURRED=~/.config/lock.png
 
-scrot -q 50 .config/screen.png
+rm $SCREEN
+rm $BLURRED
+
+scrot -q 50 $SCREEN
 dunstify -r 1 "🔐 ImageMagick" "Bluring the screen..."
-convert .config/screen.png -blur 0x16 -fill black -colorize 50% .config/lock.png
+convert $SCREEN -fill black -blur 0x8 -colorize 50% $BLURRED
 dunstify -r 1 "🔐 i3lock" "Locking..."
 
-i3lock --indpos='x+w/2:h-96' --radius=32 --ring-width=4 --line-uses-inside \
-       --separatorcolor=00000000 --keyhlcolor=39BAE6ff \
-       --ringcolor=ffffff55 --insidecolor=00000000 \
-       --ringvercolor=39BAE6ff --insidevercolor=00000000 \
-       --ringwrongcolor=00000000 --insidewrongcolor=FF3333FF \
-       --verifcolor=ffffffff --veriftext='' --wrongtext='' --timepos='ix:iy-h/2' \
-       --timecolor=39BAE6ff --datecolor=ffffff99 --clock -i .config/lock.png
-
-rm .config/lock.png
-rm .config/screen.png
-
+i3lock --ind-pos='x+w/2:h-96' --radius=32 --ring-width=4 --line-uses-inside \
+       --separator-color=00000000 --keyhl-color=39BAE6ff \
+       --ring-color=ffffff55 --inside-color=00000000 \
+       --ringver-color=39BAE6ff --insidever-color=00000000 \
+       --ringwrong-color=00000000 --insidewrong-color=FF3333FF \
+       --verif-color=ffffffff --verif-text='' --wrong-text='' --noinput-text='' --time-pos='ix:iy-h/2' \
+       --time-color=39BAE6ff --date-color=ffffff99 --clock -i $BLURRED

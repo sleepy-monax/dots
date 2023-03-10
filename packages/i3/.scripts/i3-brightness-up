@@ -1,14 +1,5 @@
 #!/bin/sh
-brightnessctl set +1%
-sleep 0.01
-brightnessctl set +1%
-sleep 0.01
-brightnessctl set +1%
-sleep 0.01
-brightnessctl set +1%
-sleep 0.01
-brightnessctl set +1%
-sleep 0.01
+brightnessctl -n=5% set +5%
 
 pkill -RTMIN+2 i3blocks
 

@@ -13,7 +13,7 @@ exec --no-startup-id unclutter --timeout 1 --jitter 16 --ignore-scrolling
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id picom --config ~/.config/compton.conf
+exec --no-startup-id picom --config ~/.config/picom.conf
 exec --no-startup-id wall-update
 exec --no-startup-id solaar -w hide
 
