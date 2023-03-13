@@ -1,2 +1,2 @@
 #!/bin/sh
-stow -v -R * -t ~
+stow -v -R */ -t ~

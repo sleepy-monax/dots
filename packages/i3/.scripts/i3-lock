@@ -5,9 +5,6 @@ sleep 1
 SCREEN=~/.config/screen.png
 BLURRED=~/.config/lock.png
 
-rm $SCREEN
-rm $BLURRED
-
 scrot -q 50 $SCREEN
 dunstify -r 1 "🔐 ImageMagick" "Bluring the screen..."
 convert $SCREEN -fill black -blur 0x8 -colorize 50% $BLURRED
@@ -20,3 +17,6 @@ i3lock --ind-pos='x+w/2:h-96' --radius=32 --ring-width=4 --line-uses-inside \
        --ringwrong-color=00000000 --insidewrong-color=FF3333FF \
        --verif-color=ffffffff --verif-text='' --wrong-text='' --noinput-text='' --time-pos='ix:iy-h/2' \
        --time-color=39BAE6ff --date-color=ffffff99 --clock -i $BLURRED
+
+rm -f $SCREEN
+rm -f $BLURRED
