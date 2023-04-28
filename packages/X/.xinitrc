@@ -8,8 +8,8 @@ export SSH_AUTH_SOCK
 # see https://github.com/NixOS/nixpkgs/issues/14966#issuecomment-520083836
 mkdir -p "$HOME"/.local/share/keyrings
 
-xrdb -load .Xressources &
-xinput set-prop "Synaptics TM3075-002" "libinput Tapping Enabled" 1 &
-xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 &
+xrdb -load .Xressources
+xinput set-prop "Synaptics TM3075-002" "libinput Tapping Enabled" 1
+xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 numlockx &
 exec i3

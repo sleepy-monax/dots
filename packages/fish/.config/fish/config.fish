@@ -13,6 +13,7 @@ end
 
 
 # --- git -------------------------------------------------------------------- #
+
 abbr g 'git'
 abbr ga 'git add'
 abbr gb 'git branch'
@@ -25,16 +26,28 @@ abbr gf 'git fetch'
 abbr gl 'git log'
 abbr gm 'git merge'
 abbr gp 'git push'
-abbr gpl 'git pull'
+abbr gpl 'git pull --rebase'
 abbr gr 'git remote'
 abbr gs 'git status'
 abbr gst 'git stash'
 
 # --- ls --------------------------------------------------------------------- #
+
 abbr l 'ls'
 abbr ll 'ls -l'
 abbr la 'ls -a'
 abbr lla 'ls -la'
+
+# --- Cd --------------------------------------------------------------------- #
+
+abbr cod 'cd ~/Projects/Odoo'
+abbr csk 'cd ~/Projects/Skift/skift'
+
+# --- Other ------------------------------------------------------------------ #
+
+abbr r ranger
+abbr c clear
+abbr f fuck
 
 thefuck --alias | source
 pyenv init - | source
