@@ -23,7 +23,9 @@ cd
 echo "Installing YAY..."
 git clone https://aur.archlinux.org/yay.git Workspace/Yay
 cd Workspace/Yay && makepkg -si
+yay -S yay
 cd
+rm Workspace/Yay
 
 yay -S dmenu2 i3lock-color google-chrome visual-studio-code-bin \
        adw-gtk3 github-cli
