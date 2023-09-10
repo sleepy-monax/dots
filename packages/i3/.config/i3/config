@@ -1,5 +1,3 @@
-# Nicolas's I3-gaps configs
-
 set $mod mod4
 
 for_window [class="^.*"] border pixel 1
@@ -32,8 +30,8 @@ bindsym $mod+Shift+d exec dmenu_run -dim 0.5 -fn "Fira code:pixelsize=26" -p "Ap
 exec --no-startup-id kitty --config ~/.config/kitty/kitty_quake.conf --name dropdown &
 
 for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] move position 0px 864px
-for_window [instance="dropdown"] resize set 3840 1296
+for_window [instance="dropdown"] move position 32 896
+for_window [instance="dropdown"] resize set 3776 1232
 for_window [instance="dropdown"] move scratchpad
 
 mode "Quake Terminal" {
@@ -190,4 +188,6 @@ bar {
         }
 }
 
-
+# Gaps
+gaps inner 8
+gaps outer 0
