@@ -8,7 +8,8 @@ sudo pacman -S base-devel git fish feh sxiv fish pyenv \
                xorg xdg-user-dirs xorg-xinit fzf zathura-pdf-mupdf \
                clang llvm nasm qemu-full pavucontrol solaar bluez \
                brightnessctl i3 picom kitty discord ttf-firacode \
-               ttf-comic-mono-git noto-fonts stow
+               ttf-comic-mono-git noto-fonts stow dunst scrot \
+               imagemagick tk
 
 chsh -s /bin/fish $USER
 

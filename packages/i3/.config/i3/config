@@ -139,7 +139,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+mode "Resize" {
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
@@ -148,9 +148,10 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
+        bindsym $mod+m mode "Move"
 }
 
-mode "move" {
+mode "Move" {
         bindsym $mod+Shift+h move left
         bindsym $mod+Shift+j move down
         bindsym $mod+Shift+k move up
@@ -158,11 +159,12 @@ mode "move" {
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym $mod+m mode "default"
+        bindsym $mod+r mode "Resize"
 }
 
-bindsym $mod+r mode "resize"
-bindsym $mod+m mode "move"
+bindsym $mod+r mode "Resize"
+bindsym $mod+m mode "Move"
 
 client.focused #0A0E14 #0A0E14 #59C2FF #0A0E14 #0A0E14
 client.focused_inactive #0A0E14 #0A0E14 #3D424D #0A0E14 #0A0E14
