@@ -9,7 +9,7 @@ sudo pacman -S base-devel git fish feh sxiv fish pyenv \
                clang llvm nasm qemu-full pavucontrol solaar bluez \
                brightnessctl i3 picom kitty discord ttf-firacode \
                ttf-comic-mono-git noto-fonts stow dunst scrot \
-               imagemagick tk dunst scrot
+               imagemagick tk dunst scrot pulsemixer
 
 chsh -s /bin/fish $USER
 
