@@ -28,6 +28,6 @@ cd
 rm Workspace/Yay
 
 yay -S dmenu2 i3lock-color google-chrome visual-studio-code-bin \
-       adw-gtk3 github-cli
+       adw-gtk3 github-cli xfce-polkit
 
 xdg-user-dirs-update
