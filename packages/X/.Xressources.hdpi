@@ -1,7 +1,7 @@
 *.foreground : #ffffff
 *.background : #0A0E10
 
-Xft.dpi: 96
+Xft.dpi: 150
 st.alpha: 238
 
 *.color0 : #0A0E10
@@ -21,4 +21,4 @@ st.alpha: 238
 *.color14 : #c7fffd
 *.color15 : #ffffff
 
-dmenu.font: Fira code:pixelsize=16
+dmenu.font: Fira code:pixelsize=26

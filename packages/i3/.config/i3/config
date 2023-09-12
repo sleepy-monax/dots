@@ -23,15 +23,15 @@ bindsym $mod+space exec terminal
 bindsym $mod+Shift+a kill
 
 bindsym $mod+d exec i3-dmenu-desktop --dmenu='i3-menu -p "Applications: "'
-bindsym $mod+Shift+d exec dmenu_run -dim 0.5 -fn "Fira code:pixelsize=26" -p "Applications: " -i -nb "#0A0E14" -nf "#B3B1AD" -sb "#56C2FF" -sf "#0A0E14"
+bindsym $mod+Shift+d exec dmenu_run -dim 0.5 -p "Applications: " -i -nb "#0A0E14" -nf "#B3B1AD" -sb "#56C2FF" -sf "#0A0E14"
 
 # Quake Terminal
 
 exec --no-startup-id kitty --config ~/.config/kitty/kitty_quake.conf --name dropdown &
 
 for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] move position 32 896
-for_window [instance="dropdown"] resize set 3776 1232
+for_window [instance="dropdown"] move position 1 ppt 41 ppt
+for_window [instance="dropdown"] resize set 98 ppt 57 ppt
 for_window [instance="dropdown"] move scratchpad
 
 mode "Quake Terminal" {

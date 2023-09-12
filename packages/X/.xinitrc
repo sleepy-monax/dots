@@ -11,7 +11,13 @@ export SSH_AUTH_SOCK
 # see https://github.com/NixOS/nixpkgs/issues/14966#issuecomment-520083836
 mkdir -p "$HOME"/.local/share/keyrings
 
-xrdb -load .Xressources
+# Use .Xressources.hdipi if the screen resolution is high enough
+if [ "$(xrandr | grep -oP ' connected [0-9]+x[0-9]+[+][0-9]+[+][0-9]+' | grep -oP '[0-9]+x[0-9]+' | grep -oP '[0-9]+')" -gt 2048 ]; then
+  xrdb -load .Xressources.hdpi
+else
+  xrdb -load .Xressources
+fi
+
 xinput set-prop "Synaptics TM3075-002" "libinput Tapping Enabled" 1
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 numlockx &
