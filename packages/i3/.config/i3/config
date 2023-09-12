@@ -1,6 +1,6 @@
 set $mod mod4
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 for_window [title="QEMU"] floating enable
 for_window [title="Minecraft Launcher"] floating enable
 for_window [title="win0"] floating enable # IDEA splash screen
@@ -55,7 +55,7 @@ bindsym XF86MonBrightnessUp exec i3-brightness-up
 # decrease screen brightness
 bindsym XF86MonBrightnessDown exec i3-brightness-down
 
-bindsym --release Print exec scrot -f -s -e 'mv $f ~/Screenshots/'
+bindsym --release $mod+Shift+p exec scrot -f -s -e 'mv $f ~/Screenshots/'
 bindsym $mod+e exec i3-power
 bindsym $mod+s exec i3-switcher
 bindsym $mod+p exec i3-display
