@@ -18,7 +18,11 @@ else
   xrdb -load .Xressources
 fi
 
+# Start Ibus
+# see https://wiki.archlinux.org/title/IBus
+ibus-daemon -rxR &
 xinput set-prop "Synaptics TM3075-002" "libinput Tapping Enabled" 1
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 numlockx &
+
 exec i3

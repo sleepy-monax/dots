@@ -6,8 +6,12 @@ set -x EDITOR nvim
 
 # Start X at login
 if status --is-login
-	if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-	    exec startx -- -keeptty
+    if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+        set -x GTK_IM_MODULE=ibus
+        set -x QT_IM_MODULE=ibus
+        set -x XMODIFIERS=@im=ibus
+
+        exec startx -- -keeptty
     end
 end
 
