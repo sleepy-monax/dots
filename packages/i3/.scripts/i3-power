@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 case "$(echo -e "Shutdown\nRestart\nExit\nLock" | i3-menu -p "Shutdown the system: ")" in
         Shutdown) exec systemctl poweroff;;
         Restart) exec systemctl reboot;;

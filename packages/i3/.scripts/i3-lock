@@ -2,13 +2,10 @@
 set -e
 sleep 1
 
-SCREEN=~/.config/screen.png
+SCREEN=~/.config/wall.png
 BLURRED=~/.config/lock.png
+convert $SCREEN -resize 1920x1080 -fill black -blur 0x8 -colorize 25%  $BLURRED
 
-scrot -q 50 $SCREEN
-dunstify -r 1 "🔐 ImageMagick" "Bluring the screen..."
-convert $SCREEN -fill black -blur 0x8 -colorize 50% $BLURRED
-dunstify -r 1 "🔐 i3lock" "Locking..."
 
 i3lock --ind-pos='x+w/2:h-96' --radius=32 --ring-width=4 --line-uses-inside \
        --separator-color=00000000 --keyhl-color=39BAE6ff \
@@ -16,7 +13,4 @@ i3lock --ind-pos='x+w/2:h-96' --radius=32 --ring-width=4 --line-uses-inside \
        --ringver-color=39BAE6ff --insidever-color=00000000 \
        --ringwrong-color=00000000 --insidewrong-color=FF3333FF \
        --verif-color=ffffffff --verif-text='' --wrong-text='' --noinput-text='' --time-pos='ix:iy-h/2' \
-       --time-color=39BAE6ff --date-color=ffffff99 --clock -i $BLURRED
-
-rm -f $SCREEN
-rm -f $BLURRED
+       --time-color=39BAE6ff --date-color=ffffff99 --clock -L -i $BLURRED

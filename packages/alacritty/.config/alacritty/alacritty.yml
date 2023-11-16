@@ -29,9 +29,9 @@ colors:
 
 font:
   normal:
-    family: Fira Code
+    family: Comic Mono
   bold:
-    family: Fira Code
+    family: Comic Mono
   italic:
-    family: Fira Code
+    family: Comic Mono
   size: 6.0

@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e
+
 dunstify -r 1 "🖼 Unsplash" "Downloading wallpaper..." &&\
 wget https://source.unsplash.com/collection/wallpapers/3840x2160 -O ~/.config/tmp.jpg &&\
 dunstify -r 1 "🖼 ImageMagick" "Converting..." &&\

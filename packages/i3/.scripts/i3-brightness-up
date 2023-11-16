@@ -1,6 +1,7 @@
 #!/bin/sh
+
+set -e
+
 brightnessctl -n=5% set +5%
-
 pkill -RTMIN+2 i3blocks
-
 dunstify -r 1 "💡 Brightness $(get-brightness)"

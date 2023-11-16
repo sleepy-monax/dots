@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 pulsemixer --toggle-mute
 dunstify -r 1 "Volume 🔇"
 pkill -RTMIN+1 i3blocks

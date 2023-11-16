@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 pulsemixer --change-volume +5
 dunstify -r 1 "Volume 🔊 $(get-volume)"
 pkill -RTMIN+1 i3blocks

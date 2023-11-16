@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Date format, for use as the prompt.
 date=$(date +"%a %d. %b %R")
 

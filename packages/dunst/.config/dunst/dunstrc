@@ -1,7 +1,7 @@
 
 [global]
     monitor = 0
-    font = Noto sans 10
+    font = Fira Code 10
     follow = keyboard
     geometry = "x5+0-0"
     indicate_hidden = yes

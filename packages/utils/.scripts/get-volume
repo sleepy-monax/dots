@@ -1,2 +1,3 @@
 #!/bin/bash
+set -e
 pulsemixer --get-volume | awk '{printf $1"%";}'

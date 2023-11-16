@@ -1,2 +1,3 @@
 #!/bin/sh
+set -e
 echo 📅 $(date '+%Y %B %d (%a) %I:%M%p')

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 WALLPAPER="$(ls ~/.wallpapers/* | sort -R | tail -1)"
 cp $WALLPAPER ~/.config/wall.png
 wall-update

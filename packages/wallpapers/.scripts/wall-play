@@ -1,3 +1,5 @@
 #!/bin/bash
 
-xwinwrap -g 3840x2160 -ov -- mpv -wid WID $1
+set -e
+
+xwinwrap -g 1920x1080 -ov -- mpv --no-osc -wid %WID $1

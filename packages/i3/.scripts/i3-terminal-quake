@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e
+
 while true
 do
     kitty --config ~/.config/kitty/kitty_quake.conf --name dropdown &
