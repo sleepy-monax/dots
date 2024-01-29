@@ -9,7 +9,7 @@ sudo pacman -S base-devel git fish feh sxiv fish pyenv \
                clang llvm nasm qemu-full pavucontrol solaar bluez \
                brightnessctl i3 picom kitty discord \
                noto-fonts stow dunst scrot \
-               imagemagick tk dunst scrot pulsemixer
+               imagemagick tk dunst scrot pulsemixer power-profiles-daemon
 
 chsh -s /bin/fish $USER
 
@@ -23,13 +23,13 @@ cd Dots/packages
 cd
 
 echo "Installing YAY..."
-git clone https://aur.archlinux.org/yay.git Workspace/Yay
-cd Workspace/Yay && makepkg -si
+git clone https://aur.archlinux.org/yay.git Projects/Yay
+cd Projects/Yay && makepkg -si
 yay -S yay
 cd
-rm -rf Workspace/Yay
+rm -rf Projects/Yay
 
 yay -S dmenu2 i3lock-color google-chrome visual-studio-code-bin \
        adw-gtk3 github-cli xfce-polkit ttf-firacode ttf-comic-mono-git
 
-xdg-user-dirs-update
+xdg-user-dirs-update --force

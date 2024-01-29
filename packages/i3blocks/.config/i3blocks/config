@@ -9,6 +9,11 @@ interval=10
 command=i3blocks-power BAT1
 interval=10
 
+[power-profile]
+command=i3blocks-power-profile
+interval=30
+signal=1
+
 [brightness]
 command=i3blocks-brightness
 interval=10

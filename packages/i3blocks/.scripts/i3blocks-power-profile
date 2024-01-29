@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+PROFILE=$(powerprofilesctl get)
+
+if [ "$PROFILE" = "performance" ]; then
+    echo "🔥" $PROFILE
+elif [ "$PROFILE" = "balanced" ]; then
+    echo "🌿" $PROFILE
+elif [ "$PROFILE" = "power-saver" ]; then
+    echo "🌱" $PROFILE
+else
+    echo "♻️" $PROFILE
+fi
